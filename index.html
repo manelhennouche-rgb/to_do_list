@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <!-- CENTER DIV-->
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <!-- Tasks table-->
+            <div class="tasks-table">
+                <!-- HEADER-->
+                <div
+                    style="width: 100%; text-align: center; background-color: rgb(92, 52, 155); color: white; padding-top: 8px; padding-bottom: 8px; ">
+                    <h2 style="display: inline;">To do list </h2>
+                    <button id="btn-add" class="circular" style="float: right;"><span class="material-symbols-outlined">
+                            add
+                        </span> </button>
+                </div>
+                <!--  // HEADER-->
+
+                <!-- TASKS-->
+                <div id="tasks" class="tasks">
+
+                    <!-- Task-->
+                    <div class="task">
+                        <!-- tasks INFO -->
+                        <div class="tasks-inf">
+                            <h2> Read a book</h2>
+
+                            <div>
+                                <span>
+                                    09/08/2026
+                                </span>
+                                <span class="material-symbols-outlined">
+                                    calendar_month
+                                </span>
+                            </div>
+                        </div>
+                        <!-- //tasks INFO-->
+
+                        <!-- tasks ACTION -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 20%; ">
+                            <button class="circular" style="background-color: red;   color: white;"><span
+                                    class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                            <button class="circular" style="background-color: green; color: white;"><span
+                                    class="material-symbols-outlined">
+                                    check
+                                </span></button>
+                            <button class="circular" style="background-color: blue;  color: white;"><span
+                                    class="material-symbols-outlined">
+                                    edit
+                                </span></button>
+                        </div>
+                        <!-- // tasks ACTION-->
+
+                    </div>
+                    <!-- //Task -->
+
+                    <!-- Task-->
+                    <div class="task">
+                        <!-- tasks INFO -->
+                        <div class="tasks-inf">
+                            <h2> Read a book</h2>
+
+                            <div>
+                                <span>
+                                    09/08/2026
+                                </span>
+                            </div>
+                        </div>
+                        <!-- //tasks INFO-->
+
+                        <!-- tasks ACTION -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 20%; ">
+                            <button class="circular" style="background-color: red;   color: white;"><span
+                                    class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                            <button class="circular" style="background-color: green; color: white;"><span
+                                    class="material-symbols-outlined">
+                                    check
+                                </span></button>
+                            <button class="circular" style="background-color: blue;  color: white;"><span
+                                    class="material-symbols-outlined">
+                                    edit
+                                </span></button>
+                        </div>
+                        <!-- // tasks ACTION-->
+
+                    </div>
+                    <!-- //Task -->
+
+                    <!-- Task-->
+                    <div class="task">
+                        <!-- tasks INFO -->
+                        <div class="tasks-inf">
+                            <h2> Read a book</h2>
+
+                            <div>
+                                <span>
+                                    09/08/2026
+                                </span>
+                            </div>
+                        </div>
+                        <!-- //tasks INFO-->
+
+                        <!-- tasks ACTION -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 20%; ">
+                            <button class="circular" style="background-color: red;   color: white;"><span
+                                    class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                            <button class="circular" style="background-color: green; color: white;"><span
+                                    class="material-symbols-outlined">
+                                    check
+                                </span></button>
+                            <button class="circular" style="background-color: blue;  color: white;"><span
+                                    class="material-symbols-outlined">
+                                    edit
+                                </span></button>
+                        </div>
+                        <!-- // tasks ACTION-->
+
+                    </div>
+                    <!-- //Task -->
+                </div>
+                <!-- // TASKS-->
+
+            </div>
+            <!-- //Tasks table-->
+
+        </div>
+        <!-- // CENTER DIV -->
+    </div>
+
+    <script>
+
+       
+
+
+        let tasks = [
+
+            {
+              "title": "Read a book",
+                "date": "10/08/2026",
+                "isDone": true
+
+            },
+            {
+                "title": "Make sport",
+                "date": "10/08/2026",
+                "isDone": false
+
+            },
+            {
+                "title": "Learn Javascript",
+                "date": "10/08/2026",
+                "isDone": false
+
+            },
+             {
+                "title": "Learn Javascript",
+                "date": "10/08/2026",
+                "isDone": true
+
+            }
+        ]
+
+          function getTasksFromLOcalstorage(){
+               let retrievedtasks = JSON.parse(localStorage.getItem("tasks"))
+               tasks = retrievedtasks ?? []
+          }
+          
+        getTasksFromLOcalstorage()
+        
+      
+
+       function fillTasksOnThePage(){
+          document.getElementById("tasks").innerHTML = ""
+          let index = 0
+        for(let task of tasks){
+                let content =  ` <!-- Task-->
+                    <div class="task ${task.isDone  ? 'done' :''}">
+        
+            
+                            <!-- tasks INFO -->
+                        <div class="tasks-inf">
+                            <h2>${task.title}</h2>
+
+                            <div class = "date" style="display : flex;align-items: center;">
+
+                                <span class="material-symbols-outlined">
+                                 calendar_month
+                                </span>
+                                <span>
+                                    ${task.date}
+                                </span>
+                               
+                            </div>
+                        </div>
+                        <!-- //tasks INFO-->
+
+                        <!-- tasks ACTION -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 20%; ">
+                            <button onclick="dlttask(${index})" class="circular" style="background-color: red;   color: white;"><span
+                                    class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                                ${task.isDone ? `<button onclick="completetask(${index})" class="circular" style="background-color:#f86368; color: white;"><span 
+                                    class="material-symbols-outlined">
+                                    cancel
+                                </span></button>` : `<button onclick="completetask(${index})" class="circular" style="background-color: green; color: white;"><span 
+                                    class="material-symbols-outlined">
+                                    check
+                                </span></button>`}
+                                
+                            
+                            <button onclick="edit(${index})" class="circular" style="background-color: blue;  color: white;"><span
+                                    class="material-symbols-outlined">
+                                    edit
+                                </span></button>
+                        </div>
+                        <!-- // tasks ACTION-->
+
+                    </div>
+                    <!-- //Task -->
+        `
+        document.getElementById("tasks").innerHTML +=content
+        index++
+}
+       }
+       
+      fillTasksOnThePage()
+      
+
+      //========= Ajouter une mission =======
+      document.getElementById("btn-add").addEventListener("click", function(){
+
+        let now = new Date()
+        let date = now.getDate() + "/" + (now.getMonth()+1) + "/" + now.getFullYear() ;
+        let taskName = prompt("Add a New Title please")
+       
+        while(taskName === ""){
+            taskName = prompt("Réecris le titre")
+        }
+          
+           let taskObj = {
+            "title" : taskName ,
+            "date"  : date ,
+            "isDone" : false
+        }
+
+        tasks.push(taskObj)
+
+        
+
+         fillTasksOnThePage()
+        storagetasks()
+        
+       
+       
+      })
+
+      //==== supprimier une mission =====
+        
+      function dlttask(index){
+        let task = tasks[index]
+       let isconfirm = confirm(`are  u sure to delete this mission of " ${task.title} " ? `)
+       if(isconfirm){
+            tasks.splice(index, 1)
+            storagetasks()
+        fillTasksOnThePage()
+        
+       }
+      
+      }
+
+
+      //======= Modifier une mission ======
+      function edit(index){
+        let task = tasks[index]
+        let edittitle = prompt("please type the New title")
+       
+        let isconfirm = confirm(` are u sure to edit this title to ${edittitle} ?`)
+        if(isconfirm){
+          task.title = edittitle
+        fillTasksOnThePage()
+        storagetasks()
+        }
+      }
+
+
+     // ====== Check une mission 
+      function completetask(index){
+        let task = tasks[index]
+    
+       task.isDone = !task.isDone
+         fillTasksOnThePage()
+         storagetasks()
+      }
+
+
+      function storagetasks(){
+          let taskString = JSON.stringify(tasks)
+         localStorage.setItem("tasks", taskString)
+      }
+    </script>
+
+</body>
+
+</html>

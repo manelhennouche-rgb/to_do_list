@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(30, 0, 77);
+}
+.task{
+    display: flex;
+    background-color: white;
+    border-bottom: solid black 1px;
+    transition: box-shadow 0.2s;
+
+}
+
+.done{
+     background-color: rgb(119, 222, 130);
+}
+.tasks-table{
+    background-color: rgb(229, 235, 229);
+    width: 60%;
+   
+    margin-top: 20px;
+}
+button{
+     border: none;
+     box-shadow: 0px 3px 5px rgb(168, 168, 168, 0.38);
+}
+.circular{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.tasks-inf{
+    width: 70%;
+    position: relative;
+    left: 20px;
+}
+.tasks{
+    padding: 12px;
+    
+}
+.task:hover{
+    box-shadow: 0px 3px 15px rgb(97, 97, 97, 0.843);
+
+}
+.date{
+    color: rgb(84, 80, 80);
+    margin-bottom: 12px;
+}
+.circular span{
+    font-size: 20px;
+}
